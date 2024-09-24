@@ -21,7 +21,7 @@ abstract class Route
         $this->container = $container;
     }
 
-    public function createModel(): Model
+    public function createModel(?Req $request = null): Model
     {
         if (static::$modelClass !== '') {
             $class = static::$modelNamespace .'\\'.static::$modelClass;
