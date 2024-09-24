@@ -1,0 +1,34 @@
+{
+    "name": "lucite/route",
+    "type": "library",
+    "require": {
+        "lucite/model": "^0.0",
+        "psr/container": "^2.0",
+        "psr/log": "^3.0",
+        "psr/http-message": "^2.0"
+        
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.3",
+        "laravel/pint": "^1.17",
+        "slim/psr7": "^1.7",
+        "lucite/mocklogger": "^0.0",
+        "php-di/php-di": "^7.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Lucite\\Route\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mike Thorn",
+            "email": "mthorn.work@gmail.com"
+        }
+    ],
+    "scripts": {
+      "format": "pint --preset psr12",
+      "test": "phpunit --stderr src/Tests/"
+    }
+}
