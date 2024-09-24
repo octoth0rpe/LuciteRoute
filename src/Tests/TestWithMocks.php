@@ -9,7 +9,7 @@ use PDO;
 use PHPUnit\Framework\TestCase;
 use Lucite\MockLogger\MockLogger;
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ServerRequestInterface;
 use Slim\Psr7\Headers;
 use Slim\Psr7\Request;
 use Slim\Psr7\Stream;
@@ -32,7 +32,7 @@ class TestWithMocks extends TestCase
         return $container;
     }
 
-    public function createRequest(): RequestInterface
+    public function createRequest(): ServerRequestInterface
     {
         return new Request(
             'GET',
@@ -40,7 +40,7 @@ class TestWithMocks extends TestCase
             new Headers(),
             [],
             [],
-            new Stream(fopen('php://output', 'w')),
+            new Stream(fopen('php://temp', 'rw+')),
         );
     }
 }
