@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "lucite/model",
-            "version": "v0.0.4",
+            "version": "v0.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/octoth0rpe/LuciteModel.git",
-                "reference": "20c752d65b0ff117dd7f4ebcbc09da52c8b755af"
+                "reference": "fba003a014b65018daa649b99077e362fe153e55"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/octoth0rpe/LuciteModel/zipball/20c752d65b0ff117dd7f4ebcbc09da52c8b755af",
-                "reference": "20c752d65b0ff117dd7f4ebcbc09da52c8b755af",
+                "url": "https://api.github.com/repos/octoth0rpe/LuciteModel/zipball/fba003a014b65018daa649b99077e362fe153e55",
+                "reference": "fba003a014b65018daa649b99077e362fe153e55",
                 "shasum": ""
             },
             "require": {
@@ -47,9 +47,9 @@
             ],
             "support": {
                 "issues": "https://github.com/octoth0rpe/LuciteModel/issues",
-                "source": "https://github.com/octoth0rpe/LuciteModel/tree/v0.0.4"
+                "source": "https://github.com/octoth0rpe/LuciteModel/tree/v0.0.6"
             },
-            "time": "2024-09-24T02:10:51+00:00"
+            "time": "2024-09-24T05:07:21+00:00"
         },
         {
             "name": "psr/container",
