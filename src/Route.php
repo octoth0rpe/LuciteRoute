@@ -28,6 +28,7 @@ abstract class Route
             return new $class(
                 $this->container->get('db'),
                 $this->container->get('logger'),
+                $request,
             );
         }
         throw new Exception('No model specified in class');
@@ -43,7 +44,7 @@ abstract class Route
     public function getOne(Req $request, Resp $response, array $args): Resp
     {
         $JsonWriter = new JsonWriter($response);
-        $model = $this->createModel();
+        $model = $this->createModel($request);
         $result = $model->fetchOne($args['id']);
         return $JsonWriter
             ->withWarnings($model->getWarnings())
@@ -60,7 +61,7 @@ abstract class Route
     public function getMany(Req $request, Resp $response, array $args): Resp
     {
         $JsonWriter = new JsonWriter($response);
-        $model = $this->createModel();
+        $model = $this->createModel($request);
         $result = $model->fetchMany();
         return $JsonWriter
             ->withWarnings($model->getWarnings())
@@ -77,7 +78,7 @@ abstract class Route
     public function create(Req $request, Resp $response, array $args): Resp
     {
         $JsonWriter = new JsonWriter($response);
-        $model = $this->createModel();
+        $model = $this->createModel($request);
         $params = $request->getParsedBody();
         # TODO: validate params
         $result = $model->create($params);
@@ -96,7 +97,7 @@ abstract class Route
     public function update(Req $request, Resp $response, array $args): Resp
     {
         $JsonWriter = new JsonWriter($response);
-        $model = $this->createModel();
+        $model = $this->createModel($request);
         $params = $request->getParsedBody();
         # TODO: Validate params here
         $result = $model->update($args['id'], $params);
@@ -115,7 +116,7 @@ abstract class Route
     public function delete(Req $request, Resp $response, array $args): Resp
     {
         $JsonWriter = new JsonWriter($response);
-        $model = $this->createModel();
+        $model = $this->createModel($request);
         $model->delete($args['id']);
         return $JsonWriter
             ->withWarnings($model->getWarnings())
