@@ -21,14 +21,13 @@ abstract class Route
         $this->container = $container;
     }
 
-    public function createModel(?Req $request = null): Model
+    public function createModel(): Model
     {
         if (static::$modelClass !== '') {
             $class = static::$modelNamespace .'\\'.static::$modelClass;
             return new $class(
                 $this->container->get('db'),
                 $this->container->get('logger'),
-                $request,
             );
         }
         throw new Exception('No model specified in class');
